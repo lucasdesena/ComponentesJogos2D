@@ -1,0 +1,32 @@
+name: jogo_2d_udemy
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flame: ^1.21.0
+  flame_audio: ^2.10.5
+  get: ^4.6.6
+  cupertino_icons: ^1.0.8
+  dashbook: ^0.1.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/images/airplane/
+    - assets/images/parralax/
+    - assets/images/particle/
+    - assets/audio/
