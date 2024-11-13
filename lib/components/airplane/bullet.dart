@@ -32,9 +32,9 @@ class Bullet extends PositionComponent with HasGameRef {
     // speed.
     _velocity = (_velocity)..scaleTo(_speed);
     // sounds used for the shot
-    FlameAudio.play('missile_shot.wav');
+    FlameAudio.play('airplane/missile_shot.wav');
     // layered sounds for missile transition/flyby
-    FlameAudio.play('missile_flyby.wav');
+    FlameAudio.play('airplane/missile_flyby.wav');
   }
 
   @override
@@ -50,7 +50,7 @@ class Bullet extends PositionComponent with HasGameRef {
     // play a sound of explosiion when the bullet goes out of bounds
     if (Utils.isPositionOutOfBounds(gameRef.size, position)) {
       removeFromParent();
-      FlameAudio.play('missile_hit.wav');
+      FlameAudio.play('airplane/missile_hit.wav');
       // render the camera shake effect for a short duration
       // gameRef.camera.shake(duration: 0.25, intensity: 5);
     }

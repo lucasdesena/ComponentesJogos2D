@@ -85,7 +85,7 @@ class AirplaneGame extends FlameGame with TapCallbacks {
 
   void startBgmMusic() {
     FlameAudio.bgm.initialize();
-    FlameAudio.bgm.play('race_to_mars.mp3');
+    FlameAudio.bgm.play('airplane/race_to_mars.mp3');
   }
   
   @override

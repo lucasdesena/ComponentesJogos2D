@@ -15,6 +15,7 @@ dependencies:
   get: ^4.6.6
   cupertino_icons: ^1.0.8
   dashbook: ^0.1.4
+  intl: ^0.20.0
 
 dev_dependencies:
   flutter_test:
@@ -30,3 +31,5 @@ flutter:
     - assets/images/parralax/
     - assets/images/particle/
     - assets/audio/
+    - assets/audio/airplane/
+    - assets/audio/ball/

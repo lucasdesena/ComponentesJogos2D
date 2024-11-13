@@ -3,7 +3,7 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jogo_2d_udemy/games/airplane_game.dart';
-import 'package:jogo_2d_udemy/games/circle_game.dart';
+import 'package:jogo_2d_udemy/games/ball_game.dart';
 import 'package:jogo_2d_udemy/games/parralax_game.dart';
 import 'package:jogo_2d_udemy/games/particle_game.dart';
 import 'package:jogo_2d_udemy/games/square_game.dart';
@@ -48,7 +48,7 @@ class ChoicePage extends StatelessWidget {
                 onPressedAction = () => Get.to(() => GameWidget(game: ParticleGame()));
                 break;
               case "Circle":
-                onPressedAction = () => Get.to(() => GameWidget(game: CircleGame()));
+                onPressedAction = () => Get.to(() => GameWidget(game: BallGame()));
                 break;
               default:
                 onPressedAction = () {};
