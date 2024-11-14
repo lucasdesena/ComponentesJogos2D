@@ -2,12 +2,23 @@ import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flame/palette.dart';
+import 'package:flame/parallax.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:jogo_2d_udemy/components/airplane/bullet.dart';
 import 'package:jogo_2d_udemy/components/airplane/joystick_player.dart';
 
 class AirplaneGame extends FlameGame with TapCallbacks {
+  // Parallax image assets
+  final _imageNames = [
+    ParallaxImageData('airplane/small_stars.png'),
+    ParallaxImageData('airplane/big_stars.png'),
+  ];
+
+  // parallax component
+  late final ParallaxComponent parallax;
+  final double parallaxSpeed = 25.0;
+
   //
   // The player being controlled by Joystick
   late final JoystickPlayer player;
@@ -21,6 +32,13 @@ class AirplaneGame extends FlameGame with TapCallbacks {
   @override
   Future<void> onLoad() async {
     await super.onLoad();
+    //
+    // load the parallax data
+    parallax = await loadParallaxComponent(_imageNames,
+        baseVelocity: Vector2(0, -parallaxSpeed),
+        velocityMultiplierDelta: Vector2(1.0, 1.8),
+        repeat: ImageRepeat.repeat);
+
     //
     // joystick knob and background skin styles
     final knobPaint = BasicPalette.green.withAlpha(200).paint();
@@ -41,6 +59,10 @@ class AirplaneGame extends FlameGame with TapCallbacks {
     // add both joystick and the controlled player to the game instance
     add(player);
     add(joystick);
+
+    //
+    // add the parallax
+    add(parallax);
     
     //
     // play background music loop
@@ -52,6 +74,15 @@ class AirplaneGame extends FlameGame with TapCallbacks {
     //
     //  show the angle of the player
     debugPrint("current player angle: ${player.angle}");
+    // rotate the parallax
+    //
+    // velocity vector pointing straight up.
+    // Represents 0 radians which is 0 degrees
+    var velocity = Vector2(0, -1);
+    // rotate this vector to the same angle as the player
+    velocity.rotate(player.angle);
+    // add a velocity multiplier
+    parallax.parallax?.baseVelocity = player.currentVelocity;
     super.update(dt);
   }
 

@@ -34,7 +34,6 @@ class BallGame extends FlameGame with HasCollisionDetection {
     
     ///
     /// interval timer initialization
-
     interval = TimerComponent(
       period: 1.00,
       removeOnFinish: true,

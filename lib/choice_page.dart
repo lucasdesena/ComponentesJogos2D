@@ -13,7 +13,7 @@ class ChoicePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> games = ['Airplane', 'Square', 'Parralax', 'Particle', 'Circle'];
+    List<String> games = <String>['Airplane', 'Square', 'Parralax', 'Particle', 'Ball'];
 
     return Scaffold(
       appBar: AppBar(
@@ -47,7 +47,7 @@ class ChoicePage extends StatelessWidget {
               case "Particle":
                 onPressedAction = () => Get.to(() => GameWidget(game: ParticleGame()));
                 break;
-              case "Circle":
+              case "Ball":
                 onPressedAction = () => Get.to(() => GameWidget(game: BallGame()));
                 break;
               default:

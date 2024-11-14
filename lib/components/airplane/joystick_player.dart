@@ -5,6 +5,9 @@ class JoystickPlayer extends SpriteComponent with HasGameRef {
   /// Pixels/s
   double maxSpeed = 300.0;
 
+  /// The current velocity of the joystick
+  Vector2 currentVelocity = Vector2.all(8.0);
+
   final JoystickComponent joystick;
 
   JoystickPlayer(this.joystick)
@@ -26,6 +29,7 @@ class JoystickPlayer extends SpriteComponent with HasGameRef {
   @override
   void update(double dt) {
     if (!joystick.delta.isZero()) {
+      currentVelocity = joystick.relativeDelta * maxSpeed;
       position.add(joystick.relativeDelta * maxSpeed * dt);
       angle = (joystick.delta.screenAngle());
       
